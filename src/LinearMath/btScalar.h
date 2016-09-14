@@ -17,6 +17,15 @@ subject to the following restrictions:
 #ifndef BT_SCALAR_H
 #define BT_SCALAR_H
 
+// Always use double precision in Bullet headers. We add a #define here
+// because this file is at the root of the Bullet include graph.
+// This is a hack specific to the RobotLocomotion fork. We should consider
+// modifying upstream to generate this source file, and to insert this
+// #define or not based on a CMake option.
+#ifndef BT_USE_DOUBLE_PRECISION
+#define BT_USE_DOUBLE_PRECISION
+#endif
+
 #ifdef BT_MANAGED_CODE
 //Aligned data types not supported in managed code
 #pragma unmanaged
